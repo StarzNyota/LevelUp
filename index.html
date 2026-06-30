@@ -19,7 +19,7 @@
     <a href="#goals">Goals</a>
     <a href="#wellness">Wellness</a>
     <a href="#creative">Creative</a>
-    <a href="#ai-section">AI Helper</a>
+    <a href="#ai">AI Helper</a>
   </nav>
 
   <div class="moon" onclick="toggleDarkMode()">🌙</div>
@@ -68,11 +68,13 @@
     <button>Explore →</button>
   </div>
 
+  <!-- 🤖 AI CARD (OPENS POPUP) -->
   <div class="card" id="ai">
     🤖
     <h3>AI Helper</h3>
     <p>Ask anything and learn</p>
-    <button onclick="scrollToSection('ai-section')">Explore →</button>
+
+    <button onclick="openChat()">Explore →</button>
   </div>
 
 </section>
@@ -95,16 +97,23 @@
   <button class="accept" onclick="acceptChallenge()">I Accept 💖</button>
 </section>
 
-<!-- 🤖 AI SECTION (FIXED + ADDED) -->
-<section id="ai-section" class="ai-box">
-  <h2>🤖 LevelUp AI</h2>
-  <p>Ask me anything and learn faster ✨</p>
+<!-- 🤖 AI POPUP CHAT (NEW SYSTEM) -->
+<div id="chatModal" class="modal">
 
-  <input id="ai-input" placeholder="Type your question..." />
-  <button onclick="fakeAI()">Ask</button>
+  <div class="modal-content">
 
-  <div id="ai-output"></div>
-</section>
+    <span class="close" onclick="closeChat()">×</span>
+
+    <h2>🤖 LevelUp AI</h2>
+
+    <div id="chatBox"></div>
+
+    <input id="chatInput" placeholder="Ask me anything..." />
+    <button onclick="sendMessage()">Send</button>
+
+  </div>
+
+</div>
 
 <script src="script.js"></script>
 </body>
