@@ -80,7 +80,7 @@ function randomColor() {
 }
 
 /* =========================
-   🤖 AI POPUP CHAT SYSTEM
+   🤖 AI POPUP CHAT (REAL READY)
 ========================= */
 
 /* OPEN CHAT */
@@ -95,37 +95,48 @@ function closeChat() {
   if (modal) modal.style.display = "none";
 }
 
-/* SEND MESSAGE */
-function sendMessage() {
+/* SEND MESSAGE TO AI */
+async function sendMessage() {
   const input = document.getElementById("chatInput");
   const chatBox = document.getElementById("chatBox");
 
   const message = input.value.trim();
   if (!message) return;
 
-  // user message
+  // show user message
   chatBox.innerHTML += `<p><b>You:</b> ${message}</p>`;
   input.value = "";
 
-  // AI typing delay
-  setTimeout(() => {
-    chatBox.innerHTML += `<p><b>AI:</b> That’s a great question 💡 Keep going!</p>`;
+  // loading state
+  const loading = document.createElement("p");
+  loading.innerHTML = "<b>AI:</b> typing...";
+  chatBox.appendChild(loading);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  try {
+    const res = await fetch("http://localhost:3000/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+
+    loading.innerHTML = `<b>AI:</b> ${data.reply}`;
     chatBox.scrollTop = chatBox.scrollHeight;
-  }, 800);
+
+  } catch (err) {
+    loading.innerHTML = "<b>AI:</b> Error connecting to server 😢";
+  }
 }
 
 /* click outside modal closes it */
 window.onclick = function (event) {
   const modal = document.getElementById("chatModal");
+
   if (event.target === modal) {
     modal.style.display = "none";
   }
 };
-
-/* =========================
-   FUTURE AI READY HOOK
-   (OpenAI integration later)
-========================= */
-async function sendToAI(message) {
-  console.log("AI message:", message);
-}
