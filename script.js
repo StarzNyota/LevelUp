@@ -1,1 +1,5 @@
-console.log("LevelUp website loaded 💖");
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth"
+  });
+}
