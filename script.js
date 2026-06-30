@@ -1,4 +1,3 @@
-
 /* =========================
    SMOOTH SCROLL
 ========================= */
@@ -27,13 +26,13 @@ function toggleDarkMode() {
 }
 
 /* Load saved theme */
-window.onload = function () {
+window.addEventListener("load", () => {
   const theme = localStorage.getItem("levelup-theme");
 
   if (theme === "dark") {
     document.body.classList.add("dark");
   }
-};
+});
 
 /* =========================
    CHALLENGE BUTTON
@@ -62,7 +61,7 @@ function createConfetti() {
 
     document.body.appendChild(confetti);
 
-    let fall = setInterval(() => {
+    const fall = setInterval(() => {
       confetti.style.top = confetti.offsetTop + 5 + "px";
 
       if (confetti.offsetTop > window.innerHeight) {
@@ -80,22 +79,31 @@ function randomColor() {
 }
 
 /* =========================
-   🤖 AI POPUP CHAT (REAL READY)
+   🤖 AI POPUP CHAT
 ========================= */
 
 /* OPEN CHAT */
 function openChat() {
-  const modal = document.getElementById("chatModal");
-  if (modal) modal.style.display = "flex";
+  document.getElementById("chatModal").style.display = "flex";
 }
 
 /* CLOSE CHAT */
 function closeChat() {
-  const modal = document.getElementById("chatModal");
-  if (modal) modal.style.display = "none";
+  document.getElementById("chatModal").style.display = "none";
 }
 
-/* SEND MESSAGE TO AI */
+/* CLICK OUTSIDE CLOSE */
+window.onclick = function (event) {
+  const modal = document.getElementById("chatModal");
+
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+/* =========================
+   SEND MESSAGE (AI CHAT)
+========================= */
 async function sendMessage() {
   const input = document.getElementById("chatInput");
   const chatBox = document.getElementById("chatBox");
@@ -103,14 +111,18 @@ async function sendMessage() {
   const message = input.value.trim();
   if (!message) return;
 
-  // show user message
-  chatBox.innerHTML += `<p><b>You:</b> ${message}</p>`;
+  // user message
+  const userMsg = document.createElement("p");
+  userMsg.innerHTML = `<b>You:</b> ${message}`;
+  chatBox.appendChild(userMsg);
+
   input.value = "";
 
-  // loading state
-  const loading = document.createElement("p");
-  loading.innerHTML = "<b>AI:</b> typing...";
-  chatBox.appendChild(loading);
+  // AI typing message
+  const aiMsg = document.createElement("p");
+  aiMsg.innerHTML = "<b>AI:</b> typing...";
+  chatBox.appendChild(aiMsg);
+
   chatBox.scrollTop = chatBox.scrollHeight;
 
   try {
@@ -124,19 +136,12 @@ async function sendMessage() {
 
     const data = await res.json();
 
-    loading.innerHTML = `<b>AI:</b> ${data.reply}`;
+    aiMsg.innerHTML = `<b>AI:</b> ${data.reply}`;
     chatBox.scrollTop = chatBox.scrollHeight;
 
   } catch (err) {
-    loading.innerHTML = "<b>AI:</b> Error connecting to server 😢";
+    aiMsg.innerHTML = "<b>AI:</b> Server not running 😢";
   }
+
+  input.focus();
 }
-
-/* click outside modal closes it */
-window.onclick = function (event) {
-  const modal = document.getElementById("chatModal");
-
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-};
