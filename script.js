@@ -19,7 +19,6 @@ function scrollToSection(id) {
 function toggleDarkMode() {
   document.body.classList.toggle("dark");
 
-  // optional save mode
   if (document.body.classList.contains("dark")) {
     localStorage.setItem("levelup-theme", "dark");
   } else {
@@ -41,13 +40,11 @@ window.onload = function () {
 ========================= */
 function acceptChallenge() {
   alert("Nice 💖 You accepted today’s challenge!");
-
-  // trigger mini confetti
   createConfetti();
 }
 
 /* =========================
-   SIMPLE CONFETTI EFFECT
+   CONFETTI EFFECT
 ========================= */
 function createConfetti() {
   for (let i = 0; i < 25; i++) {
@@ -83,10 +80,52 @@ function randomColor() {
 }
 
 /* =========================
+   🤖 AI POPUP CHAT SYSTEM
+========================= */
+
+/* OPEN CHAT */
+function openChat() {
+  const modal = document.getElementById("chatModal");
+  if (modal) modal.style.display = "flex";
+}
+
+/* CLOSE CHAT */
+function closeChat() {
+  const modal = document.getElementById("chatModal");
+  if (modal) modal.style.display = "none";
+}
+
+/* SEND MESSAGE */
+function sendMessage() {
+  const input = document.getElementById("chatInput");
+  const chatBox = document.getElementById("chatBox");
+
+  const message = input.value.trim();
+  if (!message) return;
+
+  // user message
+  chatBox.innerHTML += `<p><b>You:</b> ${message}</p>`;
+  input.value = "";
+
+  // AI typing delay
+  setTimeout(() => {
+    chatBox.innerHTML += `<p><b>AI:</b> That’s a great question 💡 Keep going!</p>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 800);
+}
+
+/* click outside modal closes it */
+window.onclick = function (event) {
+  const modal = document.getElementById("chatModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+/* =========================
    FUTURE AI READY HOOK
-   (for OpenAI chat later)
+   (OpenAI integration later)
 ========================= */
 async function sendToAI(message) {
-  // placeholder for backend connection later
   console.log("AI message:", message);
 }
