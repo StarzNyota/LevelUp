@@ -3,6 +3,13 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #ffd6e7, #d6e6ff);
   color: #333;
+  transition: 0.3s;
+}
+
+/* DARK MODE */
+body.dark {
+  background: linear-gradient(135deg, #1e1e2f, #12121a);
+  color: #eee;
 }
 
 /* NAVBAR */
@@ -17,11 +24,20 @@ body {
   top: 0;
 }
 
+body.dark .navbar {
+  background: rgba(0,0,0,0.4);
+}
+
 .navbar nav a {
   margin: 0 10px;
   text-decoration: none;
-  color: #444;
+  color: inherit;
   font-size: 14px;
+}
+
+.moon {
+  cursor: pointer;
+  font-size: 20px;
 }
 
 /* HERO */
@@ -80,8 +96,32 @@ button {
   transition: 0.3s;
 }
 
+body.dark .card {
+  background: rgba(0,0,0,0.3);
+}
+
 .card:hover {
   transform: translateY(-5px);
+}
+
+/* SPOTIFY */
+.spotify {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.spotify-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.spotify iframe {
+  width: 100%;
+  height: 152px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 /* CHALLENGE */
@@ -95,4 +135,8 @@ button {
   padding: 12px 20px;
   border-radius: 20px;
 }
+
+/* DARK MODE TEXT */
+body.dark .tagline {
+  color: #ff9ac2;
 }
