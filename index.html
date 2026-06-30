@@ -1,22 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LevelUp</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-  <h1>Welcome to LevelUp 🎀</h1>
-  <p>Your pastel dream website is loading...</p>
+  <div class="container">
 
-  <script src="script.js"></script>
-</body><audio id="bgmusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+    <h1>LevelUp 🎀</h1>
+    <p>choose your vibe ✨</p>
 
-<button onclick="document.getElementById('bgmusic').play()">
-  ▶ Play music
-</button>
-</html>
+    <div class="grid">
+
+      <!-- Dreamy -->
+      <div class="card">
+        <h2>🌙 Dreamy</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/00cTf8xTu3iQqoVZ3Ubhla"
+          width="100%" height="352"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+
+      <!-- Study -->
+      <div class="card">
+        <h2>📚 Study Vibes</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS"
+          width="100%" height="352"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+
+      <!-- Rainy -->
+      <div class="card">
+        <h2>🌧️ Rainy Mood</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DX6VdMW310YC7"
+          width="100%" height="352"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
