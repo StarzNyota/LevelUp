@@ -2,186 +2,100 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Cute Site</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ffd6e7, #d6e6ff);
-  text-align: center;
-  color: #333;
-}
-
-h1 {
-  margin-top: 40px;
-  font-size: 2.5rem;
-}
-
-p {
-  color: #555;
-  margin-top: 0;
-}
-
-/* buttons */
-.buttons {
-  margin-top: 30px;
-}
-
-button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  margin: 10px;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-.pink {
-  background: #ff7eb6;
-  color: white;
-}
-
-.blue {
-  background: #7ec8ff;
-  color: white;
-}
-
-/* sections */
-.section {
-  margin: 80px auto;
-  padding: 40px;
-  max-width: 800px;
-  background: rgba(255,255,255,0.5);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* container */
-.container {
-  padding: 30px;
-}
-
-/* playlist grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: 30px auto;
-}
-
-/* playlist cards */
-.card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(255, 126, 182, 0.25);
-}
-
-.card h2 {
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-}
-
-/* spotify embed */
-.card iframe {
-  width: 100%;
-  height: 152px;
-  border: none;
-  border-radius: 12px;
-}
-
-/* mobile */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LevelUp</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🎀 My Aesthetic Website</h1>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">🎀 LevelUp</div>
 
-<div class="buttons">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#study">Study Zone</a>
+    <a href="#goals">Goals</a>
+    <a href="#wellness">Wellness</a>
+    <a href="#creative">Creative</a>
+    <a href="#ai">AI Helper</a>
+    <a href="#about">About</a>
+  </nav>
 
-  <button class="pink" onclick="scrollToSection('study')">
-    Start Learning 🎀
-  </button>
+  <div class="moon" onclick="toggleDarkMode()">🌙</div>
+</header>
 
-  <button class="blue" onclick="scrollToSection('challenge')">
-    Daily Challenge 💙
-  </button>
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>LevelUp 🎀</h1>
+  <p class="tagline">Helping teens learn, grow and thrive</p>
+  <p class="sub">Be your best self, every day.</p>
 
-  <button class="pink" onclick="scrollToSection('music')">
-    Playlist 🎧
-  </button>
+  <div class="buttons">
+    <button class="pink" onclick="scrollToSection('study')">Start Learning 🎀</button>
+    <button class="blue" onclick="scrollToSection('challenge')">Daily Challenge 💙</button>
+  </div>
+</section>
 
-</div>
+<!-- CARDS -->
+<section class="cards">
 
-<!-- study -->
-<div id="study" class="section">
-  <h2>📚 Study Zone</h2>
-  <p>Welcome to your learning space!</p>
-</div>
+  <div class="card" id="study">
+    📚
+    <h3>Study Zone</h3>
+    <p>Notes, flashcards and tips</p>
+    <button>Explore →</button>
+  </div>
 
-<!-- challenge -->
-<div id="challenge" class="section">
-  <h2>💖 Daily Challenge</h2>
-  <p>Read for 20 minutes today!</p>
-</div>
+  <div class="card" id="goals">
+    🎯
+    <h3>Goal Tracker</h3>
+    <p>Set goals and track progress</p>
+    <button>Explore →</button>
+  </div>
 
-<!-- music section -->
-<div id="music" class="section">
+  <div class="card" id="wellness">
+    💗
+    <h3>Wellness</h3>
+    <p>Mind and body care</p>
+    <button>Explore →</button>
+  </div>
+
+  <div class="card" id="creative">
+    🎨
+    <h3>Creative Corner</h3>
+    <p>Draw, write and create</p>
+    <button>Explore →</button>
+  </div>
+
+  <div class="card" id="ai">
+    🤖
+    <h3>AI Helper</h3>
+    <p>Ask anything and learn</p>
+    <button>Explore →</button>
+  </div>
+
+</section>
+
+<!-- SPOTIFY -->
+<section class="spotify">
   <h2>🎧 Playlist Zone</h2>
 
-  <div class="grid">
-
-    <div class="card">
-      <h2>Chill Vibes</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6"></iframe>
-    </div>
-
-    <div class="card">
-      <h2>Study Beats</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS"></iframe>
-    </div>
-
-    <div class="card">
-      <h2>Happy Mix</h2>
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC"></iframe>
-    </div>
-
+  <div class="spotify-grid">
+    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6"></iframe>
+    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS"></iframe>
+    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC"></iframe>
   </div>
-</div>
+</section>
 
-<script>
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({
-    behavior: "smooth"
-  });
-}
-</script>
+<!-- CHALLENGE -->
+<section id="challenge" class="challenge">
+  <h2>📌 Today’s Challenge</h2>
+  <p>Read for 20 minutes</p>
+  <button class="accept" onclick="acceptChallenge()">I Accept 💖</button>
+</section>
 
+<script src="script.js"></script>
 </body>
 </html>
