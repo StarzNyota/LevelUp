@@ -19,8 +19,7 @@
     <a href="#goals">Goals</a>
     <a href="#wellness">Wellness</a>
     <a href="#creative">Creative</a>
-    <a href="#ai">AI Helper</a>
-    <a href="#about">About</a>
+    <a href="#ai-section">AI Helper</a>
   </nav>
 
   <div class="moon" onclick="toggleDarkMode()">🌙</div>
@@ -73,7 +72,7 @@
     🤖
     <h3>AI Helper</h3>
     <p>Ask anything and learn</p>
-    <button>Explore →</button>
+    <button onclick="scrollToSection('ai-section')">Explore →</button>
   </div>
 
 </section>
@@ -94,6 +93,17 @@
   <h2>📌 Today’s Challenge</h2>
   <p>Read for 20 minutes</p>
   <button class="accept" onclick="acceptChallenge()">I Accept 💖</button>
+</section>
+
+<!-- 🤖 AI SECTION (FIXED + ADDED) -->
+<section id="ai-section" class="ai-box">
+  <h2>🤖 LevelUp AI</h2>
+  <p>Ask me anything and learn faster ✨</p>
+
+  <input id="ai-input" placeholder="Type your question..." />
+  <button onclick="fakeAI()">Ask</button>
+
+  <div id="ai-output"></div>
 </section>
 
 <script src="script.js"></script>
