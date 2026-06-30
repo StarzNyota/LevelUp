@@ -186,7 +186,7 @@ body.dark .card {
 }
 
 /* =========================
-   AI POPUP MODAL (NEW)
+   🤖 AI POPUP MODAL (UPGRADED)
 ========================= */
 
 /* background overlay */
@@ -201,6 +201,7 @@ body.dark .card {
   background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(5px);
 }
 
 /* chat box */
@@ -212,6 +213,7 @@ body.dark .card {
   padding: 20px;
   text-align: center;
   animation: pop 0.2s ease-in-out;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 body.dark .modal-content {
@@ -222,27 +224,51 @@ body.dark .modal-content {
 /* close button */
 .close {
   float: right;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.close:hover {
+  transform: scale(1.2);
+  color: #ff6fae;
 }
 
 /* chat area */
 #chatBox {
-  height: 200px;
+  height: 250px;
   overflow-y: auto;
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 10px;
   margin: 10px 0;
   text-align: left;
+  background: rgba(255,255,255,0.6);
+}
+
+body.dark #chatBox {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* messages */
+#chatBox p {
+  margin: 8px 0;
 }
 
 /* input */
 #chatInput {
-  width: 80%;
+  width: 75%;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
+  outline: none;
+}
+
+body.dark #chatInput {
+  background: #2a2a3d;
+  color: white;
+  border: 1px solid #444;
 }
 
 /* animation */
@@ -278,5 +304,10 @@ body.dark .tagline {
 
   .modal-content {
     width: 95%;
+  }
+
+  #chatInput {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
