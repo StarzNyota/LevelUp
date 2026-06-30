@@ -9,7 +9,6 @@
 
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <div class="logo">🎀 LevelUp</div>
 
@@ -25,94 +24,41 @@
   <div class="moon" onclick="toggleDarkMode()">🌙</div>
 </header>
 
-<!-- HERO -->
 <section id="home" class="hero">
   <h1>LevelUp 🎀</h1>
-  <p class="tagline">Helping teens learn, grow and thrive</p>
-  <p class="sub">Be your best self, every day.</p>
 
   <div class="buttons">
-    <button class="pink" onclick="scrollToSection('study')">Start Learning 🎀</button>
-    <button class="blue" onclick="scrollToSection('challenge')">Daily Challenge 💙</button>
+    <button onclick="scrollToSection('study')">Start Learning 🎀</button>
   </div>
 </section>
 
-<!-- CARDS -->
 <section class="cards">
 
   <div class="card" id="study">
-    📚
     <h3>Study Zone</h3>
-    <p>Notes, flashcards and tips</p>
     <button>Explore →</button>
   </div>
 
-  <div class="card" id="goals">
-    🎯
-    <h3>Goal Tracker</h3>
-    <p>Set goals and track progress</p>
-    <button>Explore →</button>
-  </div>
-
-  <div class="card" id="wellness">
-    💗
-    <h3>Wellness</h3>
-    <p>Mind and body care</p>
-    <button>Explore →</button>
-  </div>
-
-  <div class="card" id="creative">
-    🎨
-    <h3>Creative Corner</h3>
-    <p>Draw, write and create</p>
-    <button>Explore →</button>
-  </div>
-
-  <!-- 🤖 AI CARD (OPENS POPUP) -->
   <div class="card" id="ai">
-    🤖
     <h3>AI Helper</h3>
-    <p>Ask anything and learn</p>
-
     <button onclick="openChat()">Explore →</button>
   </div>
 
 </section>
 
-<!-- SPOTIFY -->
-<section class="spotify">
-  <h2>🎧 Playlist Zone</h2>
-
-  <div class="spotify-grid">
-    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6"></iframe>
-    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS"></iframe>
-    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC"></iframe>
-  </div>
-</section>
-
-<!-- CHALLENGE -->
-<section id="challenge" class="challenge">
-  <h2>📌 Today’s Challenge</h2>
-  <p>Read for 20 minutes</p>
-  <button class="accept" onclick="acceptChallenge()">I Accept 💖</button>
-</section>
-
-<!-- 🤖 AI POPUP CHAT (NEW SYSTEM) -->
+<!-- CHAT MODAL -->
 <div id="chatModal" class="modal">
-
   <div class="modal-content">
-
     <span class="close" onclick="closeChat()">×</span>
 
     <h2>🤖 LevelUp AI</h2>
 
     <div id="chatBox"></div>
 
-    <input id="chatInput" placeholder="Ask me anything..." />
+    <input id="chatInput" placeholder="Ask something..." />
     <button onclick="sendMessage()">Send</button>
 
   </div>
-
 </div>
 
 <script src="script.js"></script>
