@@ -1,66 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LevelUp</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎀 LevelUp</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Parisienne&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<!-- ===========================
+     FLOATING DECORATIONS
+=========================== -->
+
+<div class="bows">
+  <span class="bow bow1">🎀</span>
+  <span class="bow bow2">🎀</span>
+  <span class="bow bow3">🎀</span>
+  <span class="bow bow4">🎀</span>
+  <span class="bow bow5">🎀</span>
+  <span class="bow bow6">🎀</span>
+</div>
+
+<div class="sparkles">
+  <span>✨</span>
+  <span>✨</span>
+  <span>✨</span>
+  <span>✨</span>
+  <span>✨</span>
+</div>
+
+<div class="hearts">
+  <span>💗</span>
+  <span>💖</span>
+  <span>💕</span>
+</div>
+
+<!-- ===========================
+        NAVIGATION
+=========================== -->
+
 <header class="navbar">
-  <div class="logo">🎀 LevelUp</div>
+
+  <div class="logo">
+    🎀 LevelUp
+  </div>
 
   <nav>
+
     <a href="#home">Home</a>
-    <a href="#study">Study Zone</a>
+
+    <a href="#study">Study</a>
+
     <a href="#goals">Goals</a>
+
     <a href="#wellness">Wellness</a>
-    <a href="#creative">Creative</a>
-    <a href="#ai">AI Helper</a>
+
+    <a href="#fitness">Fitness</a>
+
+    <a href="#makeup">Makeup</a>
+
+    <a href="#spotify">Music</a>
+
+    <a href="#" onclick="openChat()">
+      AI Helper
+    </a>
+
   </nav>
 
-  <div class="moon" onclick="toggleDarkMode()">🌙</div>
+  <button class="moon" onclick="toggleDarkMode()">
+      🌙
+  </button>
+
 </header>
 
-<section id="home" class="hero">
-  <h1>LevelUp 🎀</h1>
+<!-- ===========================
+        HERO
+=========================== -->
 
-  <div class="buttons">
-    <button onclick="scrollToSection('study')">Start Learning 🎀</button>
-  </div>
+<section id="home" class="hero">
+
+<div class="hero-bow">
+🎀
+</div>
+
+<h1>LevelUp</h1>
+
+<p class="tagline">
+
+Become your happiest, healthiest and most confident self.
+
+</p>
+
+<div class="hero-buttons">
+
+<button class="pink"
+onclick="scrollToSection('study')">
+
+📚 Start Learning
+
+</button>
+
+<button class="blue"
+onclick="openChat()">
+
+🤖 Ask AI
+
+</button>
+
+</div>
+
 </section>
+
+<!-- ===========================
+      FEATURE GRID
+=========================== -->
 
 <section class="cards">
 
-  <div class="card" id="study">
-    <h3>Study Zone</h3>
-    <button>Explore →</button>
-  </div>
+<div class="card" id="study">
 
-  <div class="card" id="ai">
-    <h3>AI Helper</h3>
-    <button onclick="openChat()">Explore →</button>
+<h2>📚</h2>
+
+<h3>Study Zone</h3>
+
+<p>
+
+Homework help, flashcards,
+study timer,
+revision planner,
+and notes.
+
+</p>
+
+<button onclick="scrollToSection('studySection')">
+
+Explore →
+
+</button>
+
+</div>
+
+<div class="card" id="goals">
+
+<h2>🎯</h2>
+
+<h3>Goal Maker</h3>
+
+<p>
+
+Create goals,
+track habits,
+earn badges,
+stay motivated.
+
+</p>
+
+<button onclick="scrollToSection('goalSection')">
+
+Explore →
+
+</button>
+
+</div>
+
+<div class="card" id="wellness">
+
+<h2>💖</h2>
+
+<h3>Wellness</h3>
+
+<p>
+
+Mental health,
+journaling,
+gratitude,
+affirmations,
+self care.
+
+</p>
+
+<button onclick="scrollToSection('wellnessSection')">
+
+Explore →
+
+</button>
+
+</div>
+
+<div class="card" id="fitness">
+
+<h2>💪</h2>
+
+<h3>Fitness</h3>
+
+<p>
+
+Workout planner,
+steps,
+stretching,
+healthy habits.
+
+</p>
+
+<button onclick="scrollToSection('fitnessSection')">
+
+Explore →
+
+</button>
+
+</div>
+
+<div class="card" id="makeup">
+
+<h2>💄</h2>
+
+<h3>Makeup Check</h3>
+
+<p>
+
+Beauty tips,
+skincare,
+routine ideas,
+style inspiration.
+
+</p>
+
+<button onclick="scrollToSection('makeupSection')">
+
+Explore →
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>🤖</h2>
+
+<h3>AI Helper</h3>
+
+<p>
+
+Homework,
+advice,
+motivation,
+study support,
+brainstorming.
+
+</p>
+
+<button onclick="openChat()">
+
+Open AI →
+
+</button>
+
+</div>
+
+</section><!-- ===========================
+      STUDY SECTION
+=========================== -->
+<section id="studySection" class="feature-section">
+
+  <h2>📚 Study Zone</h2>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <h3>📝 Homework Planner</h3>
+      <p>Organize assignments and due dates.</p>
+      <button>Open Planner</button>
+    </div>
+
+    <div class="feature-card">
+      <h3>⏲️ Study Timer</h3>
+      <p>Stay focused with study sessions.</p>
+      <button>Start Timer</button>
+    </div>
+
+    <div class="feature-card">
+      <h3>🧠 Flashcards</h3>
+      <p>Create flashcards for any subject.</p>
+      <button>Create</button>
+    </div>
+
   </div>
 
 </section>
 
-<!-- CHAT MODAL -->
+<!-- ===========================
+      GOALS
+=========================== -->
+<section id="goalSection" class="feature-section">
+
+<h2>🎯 Goal Maker</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>Daily Goals</h3>
+<p>Create today's goals.</p>
+<button>Add Goal</button>
+</div>
+
+<div class="feature-card">
+<h3>Habit Tracker</h3>
+<p>Track your daily habits.</p>
+<button>Track</button>
+</div>
+
+<div class="feature-card">
+<h3>Achievements</h3>
+<p>Earn cute badges as you progress.</p>
+<button>View</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      WELLNESS
+=========================== -->
+<section id="wellnessSection" class="feature-section">
+
+<h2>💖 Wellness</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>🌸 Mood Check</h3>
+<p>Record how you're feeling today.</p>
+<button>Check In</button>
+</div>
+
+<div class="feature-card">
+<h3>💌 Daily Affirmation</h3>
+<p>"You are capable of amazing things."</p>
+<button>New Quote</button>
+</div>
+
+<div class="feature-card">
+<h3>📖 Journal</h3>
+<p>Write about your day.</p>
+<button>Open Journal</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      FITNESS
+=========================== -->
+<section id="fitnessSection" class="feature-section">
+
+<h2>💪 Fitness</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>🏃 Workout</h3>
+<p>Easy beginner workouts.</p>
+<button>Start</button>
+</div>
+
+<div class="feature-card">
+<h3>💧 Water Tracker</h3>
+<p>Remember to stay hydrated.</p>
+<button>Log Water</button>
+</div>
+
+<div class="feature-card">
+<h3>🚶 Step Goal</h3>
+<p>Track your daily movement.</p>
+<button>View Goal</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      MAKEUP
+=========================== -->
+<section id="makeupSection" class="feature-section">
+
+<h2>💄 Makeup & Beauty</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>✨ Makeup Ideas</h3>
+<p>Soft coquette makeup inspiration.</p>
+<button>Browse</button>
+</div>
+
+<div class="feature-card">
+<h3>🧴 Skincare</h3>
+<p>Morning and night skincare routines.</p>
+<button>Learn</button>
+</div>
+
+<div class="feature-card">
+<h3>🎀 Beauty Tips</h3>
+<p>Simple beauty advice and routines.</p>
+<button>Explore</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      SPOTIFY
+=========================== -->
+<section id="spotify" class="spotify">
+
+<h2>🎧 Playlist Zone</h2>
+
+<div class="spotify-grid">
+
+<iframe
+src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6"
+loading="lazy">
+</iframe>
+
+<iframe
+src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS"
+loading="lazy">
+</iframe>
+
+<iframe
+src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC"
+loading="lazy">
+</iframe>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      DAILY CHALLENGE
+=========================== -->
+<section id="challenge" class="challenge">
+
+<h2>🌸 Daily Challenge</h2>
+
+<p>
+Read 20 minutes, drink water,
+and complete one goal today!
+</p>
+
+<button class="accept"
+onclick="acceptChallenge()">
+
+I Accept 💖
+
+</button>
+
+</section><!-- ===========================
+      AI POPUP CHAT
+=========================== -->
 <div id="chatModal" class="modal">
+
   <div class="modal-content">
+
     <span class="close" onclick="closeChat()">×</span>
 
     <h2>🤖 LevelUp AI</h2>
 
-    <div id="chatBox"></div>
+    <p>Your cute AI study companion! 💖</p>
 
-    <input id="chatInput" placeholder="Ask something..." />
-    <button onclick="sendMessage()">Send</button>
+    <div id="chatBox" class="chat-box">
+      <div class="ai-message">
+        Hi! I'm LevelUp AI! 🌸<br><br>
+        I can help with:
+        <br>📚 Homework
+        <br>💖 Wellness
+        <br>🎯 Goals
+        <br>💄 Makeup
+        <br>💪 Fitness
+        <br>✨ Motivation
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <input
+        type="text"
+        id="chatInput"
+        placeholder="Ask me anything..."
+        onkeydown="if(event.key==='Enter') sendMessage()"
+      >
+
+      <button onclick="sendMessage()">
+        Send 💌
+      </button>
+    </div>
 
   </div>
+
 </div>
 
+<!-- ===========================
+      ACHIEVEMENTS
+=========================== -->
+
+<section class="feature-section">
+
+<h2>🏆 Your Achievements</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+🌸
+<h3>First Visit</h3>
+<p>Welcome to LevelUp!</p>
+</div>
+
+<div class="feature-card">
+🎯
+<h3>Goal Setter</h3>
+<p>Create your first goal.</p>
+</div>
+
+<div class="feature-card">
+📚
+<h3>Study Star</h3>
+<p>Finish a study session.</p>
+</div>
+
+<div class="feature-card">
+💖
+<h3>Self Care</h3>
+<p>Complete today's wellness task.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+      QUOTE
+=========================== -->
+
+<section class="feature-section">
+
+<h2>🌸 Quote of the Day</h2>
+
+<p class="quote">
+
+"Small progress is still progress.
+Believe in yourself every single day."
+
+</p>
+
+</section>
+
+<!-- ===========================
+      FOOTER
+=========================== -->
+
+<footer class="footer">
+
+<div class="footer-logo">
+🎀 LevelUp
+</div>
+
+<p>
+
+Helping teens learn,
+grow,
+and become their best selves.
+
+</p>
+
+<p>
+
+Made with 💖 and lots of bows.
+
+</p>
+
+</footer>
+
+<!-- ===========================
+      FLOATING DECORATIONS
+=========================== -->
+
+<div class="floating floating1">🎀</div>
+<div class="floating floating2">🩷</div>
+<div class="floating floating3">✨</div>
+<div class="floating floating4">🤍</div>
+<div class="floating floating5">🦢</div>
+<div class="floating floating6">🌸</div>
+<div class="floating floating7">🩰</div>
+<div class="floating floating8">🎀</div>
+<div class="floating floating9">✨</div>
+<div class="floating floating10">🤍</div>
+
 <script src="script.js"></script>
+
 </body>
 </html>
