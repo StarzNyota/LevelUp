@@ -1,313 +1,746 @@
+/* ===================================
+   LEVELUP STYLE.CSS
+   PART 1
+=================================== */
 
-/* =========================
-   BASE
-========================= */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ffd6e7, #d6e6ff);
-  color: #333;
-  transition: 0.3s;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
-/* DARK MODE */
-body.dark {
-  background: linear-gradient(135deg, #1e1e2f, #12121a);
-  color: #eee;
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ffe4ef,#dff2ff);
+color:#444;
+overflow-x:hidden;
+transition:.4s;
+min-height:100vh;
 }
 
-/* =========================
-   NAVBAR
-========================= */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(12px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* Dark Mode */
+
+body.dark{
+background:linear-gradient(135deg,#1b1b2f,#2c2c44);
+color:#eee;
 }
 
-body.dark .navbar {
-  background: rgba(0,0,0,0.4);
+/* Scrollbar */
+
+::-webkit-scrollbar{
+width:10px;
 }
 
-.navbar nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: inherit;
-  font-size: 14px;
-  transition: 0.3s;
+::-webkit-scrollbar-track{
+background:#ffe8f4;
 }
 
-.navbar nav a:hover {
-  color: #ff6fae;
+::-webkit-scrollbar-thumb{
+background:#ff8fbe;
+border-radius:20px;
 }
 
-.moon {
-  cursor: pointer;
-  font-size: 20px;
+body.dark::-webkit-scrollbar-track{
+background:#2b2b40;
 }
 
-/* =========================
-   HERO
-========================= */
-.hero {
-  text-align: center;
-  padding: 90px 20px;
+body.dark::-webkit-scrollbar-thumb{
+background:#8e8ea0;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+/* NAVBAR */
+
+.navbar{
+position:sticky;
+top:0;
+z-index:999;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:rgba(255,255,255,.55);
+backdrop-filter:blur(15px);
+box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-.tagline {
-  font-size: 1.4rem;
-  color: #ff6fae;
+body.dark .navbar{
+background:rgba(20,20,30,.7);
 }
 
-.sub {
-  opacity: 0.8;
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#ff6ea8;
 }
 
-/* =========================
-   BUTTONS
-========================= */
-.buttons {
-  margin-top: 20px;
+body.dark .logo{
+color:#d5d5d5;
 }
 
-button {
-  border: none;
-  padding: 12px 18px;
-  border-radius: 25px;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: bold;
-  transition: 0.3s;
+.navbar nav{
+display:flex;
+gap:20px;
 }
 
-button:hover {
-  transform: scale(1.05);
+.navbar nav a{
+text-decoration:none;
+color:inherit;
+font-weight:bold;
+transition:.3s;
 }
 
-.pink {
-  background: #ff7eb6;
-  color: white;
+.navbar nav a:hover{
+color:#ff6ea8;
 }
 
-.blue {
-  background: #7ec8ff;
-  color: white;
+.moon{
+font-size:24px;
+cursor:pointer;
+transition:.3s;
 }
 
-/* =========================
-   CARDS
-========================= */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 40px;
+.moon:hover{
+transform:rotate(25deg);
 }
 
-.card {
-  background: rgba(255,255,255,0.6);
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: 0.3s;
+/* HERO */
+
+.hero{
+text-align:center;
+padding:120px 20px;
+position:relative;
+overflow:hidden;
 }
 
-body.dark .card {
-  background: rgba(0,0,0,0.3);
+.hero h1{
+font-size:65px;
+color:#ff69b4;
+margin-bottom:15px;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+body.dark .hero h1{
+color:#f2c2d9;
 }
 
-.card button {
-  margin-top: 10px;
-  background: #ff7eb6;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 15px;
+.tagline{
+font-size:24px;
+margin-bottom:15px;
 }
 
-/* =========================
-   SPOTIFY
-========================= */
-.spotify {
-  text-align: center;
-  padding: 60px 20px;
+.sub{
+font-size:18px;
+opacity:.8;
+margin-bottom:40px;
 }
 
-.spotify-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 10px;
+/* Buttons */
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.spotify iframe {
-  width: 100%;
-  height: 152px;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+button{
+border:none;
+padding:14px 24px;
+border-radius:999px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+transition:.3s;
 }
 
-/* =========================
-   CHALLENGE
-========================= */
-.challenge {
-  text-align: center;
-  padding: 60px 20px;
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
-.accept {
-  background: #ffb6d5;
-  padding: 12px 22px;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: 0.3s;
+.pink{
+background:#ff82ba;
+color:white;
 }
 
-.accept:hover {
-  transform: scale(1.05);
+.blue{
+background:#8ecfff;
+color:white;
 }
 
-/* =========================
-   🤖 AI POPUP MODAL (UPGRADED)
-========================= */
+/* Cards */
 
-/* background overlay */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(5px);
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+padding:70px;
 }
 
-/* chat box */
-.modal-content {
-  background: #fff;
-  width: 90%;
-  max-width: 420px;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  animation: pop 0.2s ease-in-out;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+.card{
+background:rgba(255,255,255,.6);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:28px;
+text-align:center;
+box-shadow:0 12px 25px rgba(0,0,0,.08);
+transition:.35s;
 }
 
-body.dark .modal-content {
-  background: #1f1f2f;
-  color: #fff;
+body.dark .card{
+background:rgba(255,255,255,.08);
 }
 
-/* close button */
-.close {
-  float: right;
-  font-size: 26px;
-  cursor: pointer;
-  transition: 0.2s;
+.card:hover{
+transform:translateY(-8px);
 }
 
-.close:hover {
-  transform: scale(1.2);
-  color: #ff6fae;
+.card h3{
+margin:15px 0;
+font-size:25px;
 }
 
-/* chat area */
-#chatBox {
-  height: 250px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 10px;
-  margin: 10px 0;
-  text-align: left;
-  background: rgba(255,255,255,0.6);
+.card p{
+margin-bottom:15px;
+line-height:1.6;
 }
 
-body.dark #chatBox {
-  background: rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.1);
+.card button{
+background:#ff83bf;
+color:white;
+}/* ===================================
+   LEVELUP STYLE.CSS
+   PART 2
+=================================== */
+
+/* ---------- FEATURE SECTIONS ---------- */
+
+.feature-section{
+padding:80px 40px;
+text-align:center;
 }
 
-/* messages */
-#chatBox p {
-  margin: 8px 0;
+.feature-section h2{
+font-size:42px;
+margin-bottom:45px;
+color:#ff69b4;
 }
 
-/* input */
-#chatInput {
-  width: 75%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  outline: none;
+body.dark .feature-section h2{
+color:#e2c7d7;
 }
 
-body.dark #chatInput {
-  background: #2a2a3d;
-  color: white;
-  border: 1px solid #444;
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
-/* animation */
-@keyframes pop {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+.feature-card{
+background:rgba(255,255,255,.65);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.35s;
 }
 
-/* =========================
-   DARK MODE TEXT FIX
-========================= */
-body.dark .tagline {
-  color: #ff9ac2;
+body.dark .feature-card{
+background:rgba(255,255,255,.08);
 }
 
-/* =========================
-   SMALL SCREEN FIX
-========================= */
-@media (max-width: 600px) {
-  .navbar nav {
-    display: none;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .modal-content {
-    width: 95%;
-  }
-
-  #chatInput {
-    width: 100%;
-    margin-bottom: 10px;
-  }
+.feature-card:hover{
+transform:translateY(-8px);
 }
+
+.feature-card h3{
+margin:15px 0;
+font-size:24px;
+}
+
+.feature-card p{
+margin-bottom:20px;
+line-height:1.6;
+}
+
+.feature-card button{
+background:#ff87c0;
+color:white;
+}
+
+/* ---------- SPOTIFY ---------- */
+
+.spotify{
+padding:80px 40px;
+text-align:center;
+}
+
+.spotify h2{
+font-size:40px;
+margin-bottom:40px;
+color:#ff69b4;
+}
+
+.spotify-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.spotify iframe{
+width:100%;
+height:152px;
+border:none;
+border-radius:20px;
+box-shadow:0 12px 25px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.spotify iframe:hover{
+transform:scale(1.03);
+}
+
+/* ---------- DAILY CHALLENGE ---------- */
+
+.challenge{
+padding:90px 20px;
+text-align:center;
+}
+
+.challenge h2{
+font-size:40px;
+margin-bottom:20px;
+color:#ff69b4;
+}
+
+.challenge p{
+font-size:20px;
+margin-bottom:25px;
+}
+
+.accept{
+background:#ff9fca;
+color:white;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer{
+padding:60px 20px;
+text-align:center;
+background:rgba(255,255,255,.5);
+backdrop-filter:blur(10px);
+margin-top:60px;
+}
+
+body.dark .footer{
+background:rgba(255,255,255,.06);
+}
+
+.footer-logo{
+font-size:34px;
+margin-bottom:15px;
+color:#ff69b4;
+font-weight:bold;
+}
+
+/* ---------- FLOATING DECORATIONS ---------- */
+
+.floating{
+position:fixed;
+font-size:28px;
+pointer-events:none;
+opacity:.6;
+animation:floatUp linear infinite;
+z-index:1;
+}
+
+.floating1{
+left:5%;
+top:95%;
+animation-duration:18s;
+}
+
+.floating2{
+left:15%;
+top:110%;
+animation-duration:22s;
+}
+
+.floating3{
+left:30%;
+top:100%;
+animation-duration:20s;
+}
+
+.floating4{
+left:45%;
+top:105%;
+animation-duration:24s;
+}
+
+.floating5{
+left:60%;
+top:110%;
+animation-duration:18s;
+}
+
+.floating6{
+left:72%;
+top:100%;
+animation-duration:26s;
+}
+
+.floating7{
+left:82%;
+top:108%;
+animation-duration:20s;
+}
+
+.floating8{
+left:92%;
+top:104%;
+animation-duration:23s;
+}
+
+.floating9{
+left:38%;
+top:115%;
+animation-duration:27s;
+}
+
+.floating10{
+left:55%;
+top:118%;
+animation-duration:25s;
+}
+
+@keyframes floatUp{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:.2;
+}
+
+50%{
+opacity:.8;
+}
+
+100%{
+transform:translateY(-130vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* ---------- DARK MODE DECORATIONS ---------- */
+
+body.dark .floating{
+filter:grayscale(100%);
+opacity:.45;
+}
+
+/* ---------- QUOTE ---------- */
+
+.quote{
+font-size:22px;
+max-width:700px;
+margin:auto;
+font-style:italic;
+line-height:1.8;
+color:#666;
+}
+
+body.dark .quote{
+color:#ddd;
+}/* ===================================
+   LEVELUP STYLE.CSS
+   PART 3 (FINAL)
+=================================== */
+
+/* ---------- AI POPUP ---------- */
+
+.modal{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(6px);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.modal-content{
+width:90%;
+max-width:520px;
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(20px);
+border-radius:30px;
+padding:30px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+animation:popup .3s ease;
+}
+
+body.dark .modal-content{
+background:#232338;
+color:white;
+}
+
+@keyframes popup{
+
+from{
+opacity:0;
+transform:scale(.85);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+.close{
+float:right;
+font-size:32px;
+cursor:pointer;
+transition:.3s;
+}
+
+.close:hover{
+transform:rotate(90deg);
+color:#ff6ea8;
+}
+
+.chat-box{
+height:320px;
+overflow-y:auto;
+padding:15px;
+border-radius:20px;
+background:#fff7fb;
+margin:20px 0;
+box-shadow:inset 0 0 10px rgba(0,0,0,.08);
+}
+
+body.dark .chat-box{
+background:#2e2e45;
+}
+
+.ai-message{
+background:#ffd9eb;
+padding:12px 16px;
+border-radius:20px;
+margin-bottom:15px;
+line-height:1.6;
+display:inline-block;
+max-width:90%;
+}
+
+body.dark .ai-message{
+background:#4a4a66;
+}
+
+.user-message{
+background:#cfe9ff;
+padding:12px 16px;
+border-radius:20px;
+margin:12px 0 12px auto;
+display:block;
+width:fit-content;
+max-width:90%;
+}
+
+body.dark .user-message{
+background:#406080;
+}
+
+.chat-input-area{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.chat-input-area input{
+flex:1;
+padding:14px;
+border:none;
+border-radius:999px;
+outline:none;
+background:#f8f8f8;
+}
+
+body.dark .chat-input-area input{
+background:#44445f;
+color:white;
+}
+
+.chat-input-area button{
+background:#ff83bf;
+color:white;
+}
+
+/* ---------- BUTTON GLOW ---------- */
+
+button{
+transition:.3s;
+}
+
+button:hover{
+box-shadow:
+0 0 12px #ff9ac8,
+0 0 25px #ffd7ea;
+}
+
+/* ---------- GLASS EFFECT ---------- */
+
+.card,
+.feature-card,
+.modal-content,
+.footer{
+border:1px solid rgba(255,255,255,.35);
+}
+
+/* ---------- COQUETTE BOW BACKGROUND ---------- */
+
+.hero::before{
+content:"🎀 🎀 🎀 🎀 🎀";
+position:absolute;
+top:25px;
+left:50%;
+transform:translateX(-50%);
+font-size:28px;
+letter-spacing:30px;
+opacity:.35;
+pointer-events:none;
+}
+
+.hero::after{
+content:"🩷 ✨ 🤍 ✨ 🩷";
+position:absolute;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+font-size:22px;
+letter-spacing:20px;
+opacity:.45;
+pointer-events:none;
+}
+
+body.dark .hero::before{
+content:"🩶 🩶 🩶 🩶 🩶";
+}
+
+body.dark .hero::after{
+content:"✨ 🩶 ✨ 🩶 ✨";
+}
+
+/* ---------- SECTION SPACING ---------- */
+
+section{
+position:relative;
+z-index:2;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+.card,
+.feature-card{
+animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:900px){
+
+.navbar{
+padding:15px;
+flex-direction:column;
+gap:15px;
+}
+
+.navbar nav{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.cards,
+.feature-grid,
+.spotify-grid{
+grid-template-columns:1fr;
+padding:20px;
+}
+
+.hero{
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero::before{
+letter-spacing:12px;
+font-size:22px;
+}
+
+.hero::after{
+letter-spacing:10px;
+font-size:18px;
+}
+
+.chat-box{
+height:240px;
+}
+
+.chat-input-area{
+flex-direction:column;
+}
+
+.chat-input-area button{
+width:100%;
+}
+
+}
+
+/* ---------- EXTRA COQUETTE DECORATIONS ---------- */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background-image:
+radial-gradient(circle at 10% 20%, rgba(255,255,255,.4) 2px, transparent 2px),
+radial-gradient(circle at 70% 40%, rgba(255,255,255,.35) 2px, transparent 2px),
+radial-gradient(circle at 30% 80%, rgba(255,255,255,.3) 2px, transparent 2px),
+radial-gradient(circle at 90% 60%, rgba(255,255,255,.25) 2px, transparent 2px);
+background-size:180px 180px;
+opacity:.5;
+}
+
+/* ---------- SELECTION ---------- */
+
+::selection{
+background:#ff9ec9;
+color:white;
+}
+
+/* ---------- END ---------- */
