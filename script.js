@@ -1,11 +1,17 @@
+/* ===================================
+   LEVELUP SCRIPT.JS
+   PART 1
+=================================== */
+
 /* =========================
    SMOOTH SCROLL
 ========================= */
-function scrollToSection(id) {
-  const el = document.getElementById(id);
 
-  if (el) {
-    el.scrollIntoView({
+function scrollToSection(id) {
+  const section = document.getElementById(id);
+
+  if (section) {
+    section.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
@@ -13,135 +19,381 @@ function scrollToSection(id) {
 }
 
 /* =========================
-   DARK MODE TOGGLE
+   DARK MODE
 ========================= */
+
 function toggleDarkMode() {
+
   document.body.classList.toggle("dark");
 
   if (document.body.classList.contains("dark")) {
-    localStorage.setItem("levelup-theme", "dark");
+    localStorage.setItem("theme", "dark");
   } else {
-    localStorage.setItem("levelup-theme", "light");
+    localStorage.setItem("theme", "light");
   }
+
 }
 
-/* Load saved theme */
 window.addEventListener("load", () => {
-  const theme = localStorage.getItem("levelup-theme");
 
-  if (theme === "dark") {
+  if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
   }
+
 });
 
 /* =========================
-   CHALLENGE BUTTON
-========================= */
-function acceptChallenge() {
-  alert("Nice 💖 You accepted today’s challenge!");
-  createConfetti();
-}
-
-/* =========================
-   CONFETTI EFFECT
-========================= */
-function createConfetti() {
-  for (let i = 0; i < 25; i++) {
-    const confetti = document.createElement("div");
-
-    confetti.style.position = "fixed";
-    confetti.style.width = "8px";
-    confetti.style.height = "8px";
-    confetti.style.background = randomColor();
-    confetti.style.left = Math.random() * window.innerWidth + "px";
-    confetti.style.top = "-10px";
-    confetti.style.borderRadius = "50%";
-    confetti.style.zIndex = "9999";
-    confetti.style.opacity = "0.8";
-
-    document.body.appendChild(confetti);
-
-    const fall = setInterval(() => {
-      confetti.style.top = confetti.offsetTop + 5 + "px";
-
-      if (confetti.offsetTop > window.innerHeight) {
-        confetti.remove();
-        clearInterval(fall);
-      }
-    }, 20);
-  }
-}
-
-/* random pastel colors */
-function randomColor() {
-  const colors = ["#ff7eb6", "#7ec8ff", "#ffd6e7", "#b6f2ff", "#c9b6ff"];
-  return colors[Math.floor(Math.random() * colors.length)];
-}
-
-/* =========================
-   🤖 AI POPUP CHAT
+   AI POPUP
 ========================= */
 
-/* OPEN CHAT */
 function openChat() {
+
   document.getElementById("chatModal").style.display = "flex";
+
 }
 
-/* CLOSE CHAT */
 function closeChat() {
+
   document.getElementById("chatModal").style.display = "none";
+
 }
 
-/* CLICK OUTSIDE CLOSE */
-window.onclick = function (event) {
+/* Close when clicking outside */
+
+window.addEventListener("click", function (event) {
+
   const modal = document.getElementById("chatModal");
 
   if (event.target === modal) {
-    modal.style.display = "none";
+    closeChat();
   }
-};
+
+});
 
 /* =========================
-   SEND MESSAGE (AI CHAT)
+   CHAT
 ========================= */
-async function sendMessage() {
-  const input = document.getElementById("chatInput");
-  const chatBox = document.getElementById("chatBox");
 
-  const message = input.value.trim();
-  if (!message) return;
+const chatInput = document.getElementById("chatInput");
+const chatBox = document.getElementById("chatBox");
 
-  // user message
-  const userMsg = document.createElement("p");
-  userMsg.innerHTML = `<b>You:</b> ${message}`;
-  chatBox.appendChild(userMsg);
+/* Press Enter */
 
-  input.value = "";
+if (chatInput) {
 
-  // AI typing message
-  const aiMsg = document.createElement("p");
-  aiMsg.innerHTML = "<b>AI:</b> typing...";
-  chatBox.appendChild(aiMsg);
+chatInput.addEventListener("keypress", function(e){
 
-  chatBox.scrollTop = chatBox.scrollHeight;
+if(e.key==="Enter"){
 
-  try {
-    const res = await fetch("http://localhost:3000/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ message })
-    });
+sendMessage();
 
-    const data = await res.json();
-
-    aiMsg.innerHTML = `<b>AI:</b> ${data.reply}`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-  } catch (err) {
-    aiMsg.innerHTML = "<b>AI:</b> Server not running 😢";
-  }
-
-  input.focus();
 }
+
+});
+
+}
+
+/* Send */
+
+async function sendMessage(){
+
+const input=document.getElementById("chatInput");
+const box=document.getElementById("chatBox");
+
+const message=input.value.trim();
+
+if(message==="") return;
+
+/* User Bubble */
+
+box.innerHTML+=`
+<div class="user-message">
+<b>You:</b><br>${message}
+</div>
+`;
+
+input.value="";
+
+box.scrollTop=box.scrollHeight;
+
+/* AI Bubble */
+
+const aiBubble=document.createElement("div");
+
+aiBubble.className="ai-message";
+
+aiBubble.innerHTML="💭 Thinking...";
+
+box.appendChild(aiBubble);
+
+box.scrollTop=box.scrollHeight;
+
+try{
+
+const response=await fetch("http://localhost:3000/chat",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+message:message
+
+})
+
+});
+
+const data=await response.json();
+
+aiBubble.innerHTML="<b>LevelUp AI:</b><br>"+data.reply;
+
+box.scrollTop=box.scrollHeight;
+
+}catch(error){
+
+aiBubble.innerHTML="❌ Couldn't connect to the AI server.";
+
+}
+
+}/* ===================================
+   LEVELUP SCRIPT.JS
+   PART 2
+=================================== */
+
+/* =========================
+   DAILY CHALLENGE
+========================= */
+
+function acceptChallenge(){
+
+alert("🎉 Great job! You accepted today's challenge!");
+
+createConfetti();
+
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti(){
+
+for(let i=0;i<80;i++){
+
+const confetti=document.createElement("div");
+
+confetti.style.position="fixed";
+confetti.style.left=Math.random()*window.innerWidth+"px";
+confetti.style.top="-20px";
+
+confetti.style.width="10px";
+confetti.style.height="10px";
+
+confetti.style.borderRadius="50%";
+
+const colors=[
+"#ff7eb6",
+"#ffd6e7",
+"#7ec8ff",
+"#ffffff",
+"#ffe98d",
+"#d6b3ff"
+];
+
+confetti.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+confetti.style.zIndex="99999";
+
+document.body.appendChild(confetti);
+
+let y=-20;
+let x=Math.random()*window.innerWidth;
+let speed=2+Math.random()*5;
+
+const fall=setInterval(()=>{
+
+y+=speed;
+
+confetti.style.top=y+"px";
+
+confetti.style.left=
+x+Math.sin(y/25)*12+"px";
+
+if(y>window.innerHeight){
+
+clearInterval(fall);
+
+confetti.remove();
+
+}
+
+},20);
+
+}
+
+}
+
+/* =========================
+   GOALS
+========================= */
+
+let goalCount=0;
+
+function addGoal(){
+
+goalCount++;
+
+alert("🎯 Goal Added!\n\nTotal Goals: "+goalCount);
+
+}
+
+/* =========================
+   STUDY TIMER
+========================= */
+
+let timer;
+let seconds=1500;
+
+function startStudyTimer(){
+
+clearInterval(timer);
+
+timer=setInterval(function(){
+
+seconds--;
+
+let min=Math.floor(seconds/60);
+let sec=seconds%60;
+
+const display=document.getElementById("studyTimer");
+
+if(display){
+
+display.innerHTML=
+min+":"+
+(sec<10?"0":"")+sec;
+
+}
+
+if(seconds<=0){
+
+clearInterval(timer);
+
+alert("📚 Study session complete!");
+
+createConfetti();
+
+seconds=1500;
+
+}
+
+},1000);
+
+}
+
+/* =========================
+   WATER TRACKER
+========================= */
+
+let water=0;
+
+function drinkWater(){
+
+water++;
+
+alert("💧 Glasses today: "+water);
+
+}
+
+/* =========================
+   FITNESS
+========================= */
+
+let workouts=0;
+
+function completeWorkout(){
+
+workouts++;
+
+alert("💪 Workout completed!\nTotal: "+workouts);
+
+}
+
+/* =========================
+   MOOD CHECK
+========================= */
+
+function moodCheck(mood){
+
+alert("🌸 Mood saved: "+mood);
+
+}
+
+/* =========================
+   AFFIRMATIONS
+========================= */
+
+const affirmations=[
+
+"You are enough. 💖",
+
+"Small progress is still progress. 🌸",
+
+"You can do hard things. ✨",
+
+"Believe in yourself. 🎀",
+
+"Keep shining. 🤍",
+
+"You are stronger than you think. 🌷",
+
+"Every day is a fresh start. ☁️",
+
+"Your future is bright. ⭐"
+
+];
+
+function newAffirmation(){
+
+const quote=
+
+affirmations[
+Math.floor(
+Math.random()*affirmations.length
+)
+];
+
+const box=document.getElementById("affirmation");
+
+if(box){
+
+box.innerHTML=quote;
+
+}else{
+
+alert(quote);
+
+}
+
+}/* ===================================
+   LEVELUP SCRIPT.JS
+   PART 3 (FINAL)
+=================================== */
+
+/* =========================
+   WELCOME MESSAGE
+========================= */
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+    console.log("🎀 Welcome to LevelUp!");
+  }, 1000);
+
+});
+
+/* =========================
