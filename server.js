@@ -15,12 +15,12 @@ const client = new OpenAI({
 
 app.post("/chat", async (req, res) => {
   try {
-    const response = await client.chat.completions.create({
+    const completion = await client.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: "You are LevelUp AI, a cute, motivating study assistant for teens."
+          content: "You are LevelUp AI, a cute coquette-style glow-up assistant."
         },
         {
           role: "user",
@@ -30,12 +30,12 @@ app.post("/chat", async (req, res) => {
     });
 
     res.json({
-      reply: response.choices[0].message.content
+      reply: completion.choices[0].message.content
     });
 
   } catch (err) {
-    res.status(500).json({ error: "Something went wrong" });
+    res.status(500).json({ error: "AI error" });
   }
 });
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.listen(3000, () => console.log("Server running"));
