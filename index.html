@@ -1,709 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎀 LevelUp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+    <title>LevelUp 🎀</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Parisienne&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- ===========================
-     FLOATING DECORATIONS
-=========================== -->
+<!-- Floating Bows -->
+<div class="bows"></div>
 
-<div class="bows">
-  <span class="bow bow1">🎀</span>
-  <span class="bow bow2">🎀</span>
-  <span class="bow bow3">🎀</span>
-  <span class="bow bow4">🎀</span>
-  <span class="bow bow5">🎀</span>
-  <span class="bow bow6">🎀</span>
-</div>
-
-<div class="sparkles">
-  <span>✨</span>
-  <span>✨</span>
-  <span>✨</span>
-  <span>✨</span>
-  <span>✨</span>
-</div>
-
-<div class="hearts">
-  <span>💗</span>
-  <span>💖</span>
-  <span>💕</span>
-</div>
+<!-- Lace Background -->
+<div class="lace"></div>
 
 <!-- ===========================
-        NAVIGATION
+NAVIGATION
 =========================== -->
 
 <header class="navbar">
 
-  <div class="logo">
-    🎀 LevelUp
-  </div>
+    <div class="logo">
+        🎀 LevelUp
+    </div>
 
-  <nav>
+    <nav>
 
-    <a href="#home">Home</a>
+        <a href="index.html">Home</a>
 
-    <a href="#study">Study</a>
+        <a href="study.html">Study Zone</a>
 
-    <a href="#goals">Goals</a>
+        <a href="wellness.html">Wellness</a>
 
-    <a href="#wellness">Wellness</a>
+        <a href="beauty.html">Beauty</a>
 
-    <a href="#fitness">Fitness</a>
+        <a href="fashion.html">Fashion</a>
 
-    <a href="#makeup">Makeup</a>
+        <a href="music.html">Music</a>
 
-    <a href="#spotify">Music</a>
+        <a href="ai.html">AI Helper</a>
 
-    <a href="#" onclick="openChat()">
-      AI Helper
-    </a>
+        <a href="login.html" class="login-btn">Log In</a>
 
-  </nav>
+        <a href="signup.html" class="signup-btn">Sign Up</a>
 
-  <button class="moon" onclick="toggleDarkMode()">
-      🌙
-  </button>
+    </nav>
+
+    <button id="darkModeBtn" onclick="toggleDarkMode()">
+        🌙
+    </button>
 
 </header>
 
 <!-- ===========================
-        HERO
+HERO
 =========================== -->
 
-<section id="home" class="hero">
+<section class="hero">
 
-<div class="hero-bow">
-🎀
-</div>
+    <div class="hero-content">
 
-<h1>LevelUp</h1>
+        <h1>
+            Welcome to
+            <span>LevelUp 🎀</span>
+        </h1>
 
-<p class="tagline">
+        <p>
 
-Become your happiest, healthiest and most confident self.
+            Your cozy place to study, glow up, stay healthy,
+            organize your life, discover new music,
+            and become the best version of yourself.
 
-</p>
+        </p>
 
-<div class="hero-buttons">
+        <div class="hero-buttons">
 
-<button class="pink"
-onclick="scrollToSection('study')">
+            <a href="signup.html" class="primary-btn">
+                Create Free Account
+            </a>
 
-📚 Start Learning
+            <a href="study.html" class="secondary-btn">
+                Start Studying
+            </a>
 
-</button>
+        </div>
 
-<button class="blue"
-onclick="openChat()">
-
-🤖 Ask AI
-
-</button>
-
-</div>
+    </div>
 
 </section>
 
 <!-- ===========================
-      FEATURE GRID
+DAILY MOTIVATION
 =========================== -->
 
-<section class="cards">
+<section class="quote-section">
 
-<div class="card" id="study">
+    <h2>
 
-<h2>📚</h2>
+        💖 Daily Motivation
 
-<h3>Study Zone</h3>
+    </h2>
 
-<p>
+    <div class="quote-card">
 
-Homework help, flashcards,
-study timer,
-revision planner,
-and notes.
+        <p id="dailyQuote">
 
-</p>
+            Loading today's quote...
 
-<button onclick="scrollToSection('studySection')">
+        </p>
 
-Explore →
+    </div>
 
-</button>
+</section>
 
-</div>
+<!-- ===========================
+FEATURES
+=========================== -->
 
-<div class="card" id="goals">
+<section class="features">
 
-<h2>🎯</h2>
+    <h2>
 
-<h3>Goal Maker</h3>
+        Explore LevelUp
 
-<p>
+    </h2>
 
-Create goals,
-track habits,
-earn badges,
-stay motivated.
+    <div class="feature-grid">
 
-</p>
+        <a href="study.html" class="feature-card">
 
-<button onclick="scrollToSection('goalSection')">
+            📚
 
-Explore →
+            <h3>Study Zone</h3>
 
-</button>
+            <p>
 
-</div>
+                Flashcards, notes, Pomodoro timer,
+                planners, quizzes and more.
 
-<div class="card" id="wellness">
+            </p>
 
-<h2>💖</h2>
+        </a>
 
-<h3>Wellness</h3>
+        <a href="wellness.html" class="feature-card">
 
-<p>
+            🌿
 
-Mental health,
-journaling,
-gratitude,
-affirmations,
-self care.
+            <h3>Wellness</h3>
 
-</p>
+            <p>
 
-<button onclick="scrollToSection('wellnessSection')">
+                Healthy meals, water tracker,
+                sleep tracker and self-care.
 
-Explore →
+            </p>
 
-</button>
+        </a>
 
-</div>
+        <a href="beauty.html" class="feature-card">
 
-<div class="card" id="fitness">
+            💄
 
-<h2>💪</h2>
+            <h3>Beauty</h3>
 
-<h3>Fitness</h3>
+            <p>
 
-<p>
+                Makeup tips, skincare,
+                haircare and beauty routines.
 
-Workout planner,
-steps,
-stretching,
-healthy habits.
+            </p>
 
-</p>
+        </a>
 
-<button onclick="scrollToSection('fitnessSection')">
+        <a href="fashion.html" class="feature-card">
 
-Explore →
+            👗
 
-</button>
+            <h3>Fashion</h3>
 
-</div>
+            <p>
 
-<div class="card" id="makeup">
+                Outfit inspiration,
+                style guides and shopping ideas.
 
-<h2>💄</h2>
+            </p>
 
-<h3>Makeup Check</h3>
+        </a>
 
-<p>
+        <a href="music.html" class="feature-card">
 
-Beauty tips,
-skincare,
-routine ideas,
-style inspiration.
+            🎵
 
-</p>
+            <h3>Music</h3>
 
-<button onclick="scrollToSection('makeupSection')">
+            <p>
 
-Explore →
+                Listen to your favorite
+                Spotify playlists.
 
-</button>
+            </p>
 
-</div>
+        </a>
 
-<div class="card">
+        <a href="ai.html" class="feature-card">
 
-<h2>🤖</h2>
+            🤖
 
-<h3>AI Helper</h3>
+            <h3>AI Helper</h3>
 
-<p>
+            <p>
 
-Homework,
-advice,
-motivation,
-study support,
-brainstorming.
+                Study help,
+                motivation,
+                wellness advice
+                and more.
 
-</p>
+            </p>
 
-<button onclick="openChat()">
+        </a>
 
-Open AI →
-
-</button>
-
-</div>
+    </div>
 
 </section><!-- ===========================
-      STUDY SECTION
+FASHION / CLOTHES SECTION
 =========================== -->
-<section id="studySection" class="feature-section">
 
-  <h2>📚 Study Zone</h2>
+<section class="fashion-preview">
 
-  <div class="feature-grid">
+    <h2>👗 Fashion & Coquette Closet</h2>
 
-    <div class="feature-card">
-      <h3>📝 Homework Planner</h3>
-      <p>Organize assignments and due dates.</p>
-      <button>Open Planner</button>
+    <p class="subtext">
+        Outfit inspo, cute styles, and your personal SHEIN picks ✨
+    </p>
+
+    <div class="fashion-card">
+
+        <div class="fashion-text">
+
+            <h3>🎀 My SHEIN Picks</h3>
+
+            <p>
+                Explore my curated coquette outfits, bows, dresses,
+                and aesthetic fits handpicked just for LevelUp 💖
+            </p>
+
+            <p class="affiliate-note">
+                💌 Use my code at checkout:
+                <strong>TZ9EE</strong>
+            </p>
+
+            <a href="https://onelink.shein.com/40/5uh2yus1rh2a"
+               target="_blank"
+               class="shop-btn">
+                🛍️ Shop My SHEIN Closet
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="feature-card">
-      <h3>⏲️ Study Timer</h3>
-      <p>Stay focused with study sessions.</p>
-      <button>Start Timer</button>
+</section>
+
+
+<!-- ===========================
+SPOTIFY SECTION
+=========================== -->
+
+<section class="music-preview">
+
+    <h2>🎵 Your Vibe Playlists</h2>
+
+    <p class="subtext">
+        Study, relax, and glow-up music ✨
+    </p>
+
+    <!-- Spotify Embeds -->
+    <div class="spotify-grid">
+
+        <iframe src="https://open.spotify.com/embed/playlist/00cTf8xTu3iQqoVZ3Ubhla"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+        <iframe src="https://open.spotify.com/embed/playlist/5ytghvrXxOMFQwhuFj404s"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+        <iframe src="https://open.spotify.com/embed/playlist/26oMe0VpUegazDE8OcCee1"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
     </div>
 
-    <div class="feature-card">
-      <h3>🧠 Flashcards</h3>
-      <p>Create flashcards for any subject.</p>
-      <button>Create</button>
-    </div>
-
-  </div>
-
 </section>
 
-<!-- ===========================
-      GOALS
-=========================== -->
-<section id="goalSection" class="feature-section">
-
-<h2>🎯 Goal Maker</h2>
-
-<div class="feature-grid">
-
-<div class="feature-card">
-<h3>Daily Goals</h3>
-<p>Create today's goals.</p>
-<button>Add Goal</button>
-</div>
-
-<div class="feature-card">
-<h3>Habit Tracker</h3>
-<p>Track your daily habits.</p>
-<button>Track</button>
-</div>
-
-<div class="feature-card">
-<h3>Achievements</h3>
-<p>Earn cute badges as you progress.</p>
-<button>View</button>
-</div>
-
-</div>
-
-</section>
 
 <!-- ===========================
-      WELLNESS
-=========================== -->
-<section id="wellnessSection" class="feature-section">
-
-<h2>💖 Wellness</h2>
-
-<div class="feature-grid">
-
-<div class="feature-card">
-<h3>🌸 Mood Check</h3>
-<p>Record how you're feeling today.</p>
-<button>Check In</button>
-</div>
-
-<div class="feature-card">
-<h3>💌 Daily Affirmation</h3>
-<p>"You are capable of amazing things."</p>
-<button>New Quote</button>
-</div>
-
-<div class="feature-card">
-<h3>📖 Journal</h3>
-<p>Write about your day.</p>
-<button>Open Journal</button>
-</div>
-
-</div>
-
-</section>
-
-<!-- ===========================
-      FITNESS
-=========================== -->
-<section id="fitnessSection" class="feature-section">
-
-<h2>💪 Fitness</h2>
-
-<div class="feature-grid">
-
-<div class="feature-card">
-<h3>🏃 Workout</h3>
-<p>Easy beginner workouts.</p>
-<button>Start</button>
-</div>
-
-<div class="feature-card">
-<h3>💧 Water Tracker</h3>
-<p>Remember to stay hydrated.</p>
-<button>Log Water</button>
-</div>
-
-<div class="feature-card">
-<h3>🚶 Step Goal</h3>
-<p>Track your daily movement.</p>
-<button>View Goal</button>
-</div>
-
-</div>
-
-</section>
-
-<!-- ===========================
-      MAKEUP
-=========================== -->
-<section id="makeupSection" class="feature-section">
-
-<h2>💄 Makeup & Beauty</h2>
-
-<div class="feature-grid">
-
-<div class="feature-card">
-<h3>✨ Makeup Ideas</h3>
-<p>Soft coquette makeup inspiration.</p>
-<button>Browse</button>
-</div>
-
-<div class="feature-card">
-<h3>🧴 Skincare</h3>
-<p>Morning and night skincare routines.</p>
-<button>Learn</button>
-</div>
-
-<div class="feature-card">
-<h3>🎀 Beauty Tips</h3>
-<p>Simple beauty advice and routines.</p>
-<button>Explore</button>
-</div>
-
-</div>
-
-</section>
-
-<!-- ===========================
-      SPOTIFY
-=========================== -->
-<section id="spotify" class="spotify">
-
-<h2>🎧 Playlist Zone</h2>
-
-<div class="spotify-grid">
-
-<iframe
-src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6"
-loading="lazy">
-</iframe>
-
-<iframe
-src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS"
-loading="lazy">
-</iframe>
-
-<iframe
-src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC"
-loading="lazy">
-</iframe>
-
-</div>
-
-</section>
-
-<!-- ===========================
-      DAILY CHALLENGE
-=========================== -->
-<section id="challenge" class="challenge">
-
-<h2>🌸 Daily Challenge</h2>
-
-<p>
-Read 20 minutes, drink water,
-and complete one goal today!
-</p>
-
-<button class="accept"
-onclick="acceptChallenge()">
-
-I Accept 💖
-
-</button>
-
-</section><!-- ===========================
-      AI POPUP CHAT
-=========================== -->
-<div id="chatModal" class="modal">
-
-  <div class="modal-content">
-
-    <span class="close" onclick="closeChat()">×</span>
-
-    <h2>🤖 LevelUp AI</h2>
-
-    <p>Your cute AI study companion! 💖</p>
-
-    <div id="chatBox" class="chat-box">
-      <div class="ai-message">
-        Hi! I'm LevelUp AI! 🌸<br><br>
-        I can help with:
-        <br>📚 Homework
-        <br>💖 Wellness
-        <br>🎯 Goals
-        <br>💄 Makeup
-        <br>💪 Fitness
-        <br>✨ Motivation
-      </div>
-    </div>
-
-    <div class="chat-input-area">
-      <input
-        type="text"
-        id="chatInput"
-        placeholder="Ask me anything..."
-        onkeydown="if(event.key==='Enter') sendMessage()"
-      >
-
-      <button onclick="sendMessage()">
-        Send 💌
-      </button>
-    </div>
-
-  </div>
-
-</div>
-
-<!-- ===========================
-      ACHIEVEMENTS
-=========================== -->
-
-<section class="feature-section">
-
-<h2>🏆 Your Achievements</h2>
-
-<div class="feature-grid">
-
-<div class="feature-card">
-🌸
-<h3>First Visit</h3>
-<p>Welcome to LevelUp!</p>
-</div>
-
-<div class="feature-card">
-🎯
-<h3>Goal Setter</h3>
-<p>Create your first goal.</p>
-</div>
-
-<div class="feature-card">
-📚
-<h3>Study Star</h3>
-<p>Finish a study session.</p>
-</div>
-
-<div class="feature-card">
-💖
-<h3>Self Care</h3>
-<p>Complete today's wellness task.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- ===========================
-      QUOTE
-=========================== -->
-
-<section class="feature-section">
-
-<h2>🌸 Quote of the Day</h2>
-
-<p class="quote">
-
-"Small progress is still progress.
-Believe in yourself every single day."
-
-</p>
-
-</section>
-
-<!-- ===========================
-      FOOTER
+FOOTER
 =========================== -->
 
 <footer class="footer">
 
-<div class="footer-logo">
-🎀 LevelUp
-</div>
+    <div class="footer-content">
 
-<p>
+        <h3>🎀 LevelUp</h3>
 
-Helping teens learn,
-grow,
-and become their best selves.
+        <p>
+            Your all-in-one glow-up, study, and lifestyle space.
+        </p>
 
-</p>
+        <p class="small">
+            © 2026 LevelUp. All rights reserved.
+        </p>
 
-<p>
-
-Made with 💖 and lots of bows.
-
-</p>
+    </div>
 
 </footer>
 
+
 <!-- ===========================
-      FLOATING DECORATIONS
+CLOSE HTML
 =========================== -->
 
-<div class="floating floating1">🎀</div>
-<div class="floating floating2">🩷</div>
-<div class="floating floating3">✨</div>
-<div class="floating floating4">🤍</div>
-<div class="floating floating5">🦢</div>
-<div class="floating floating6">🌸</div>
-<div class="floating floating7">🩰</div>
-<div class="floating floating8">🎀</div>
-<div class="floating floating9">✨</div>
-<div class="floating floating10">🤍</div>
-
-<script src="script.js"></script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LevelUp 🎀</title>
-
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<!-- 🌸 FLOATING BOWS BACKGROUND -->
-<div class="bows"></div>
-
-<!-- NAV -->
-<header class="navbar">
-  <div class="logo">🎀 LevelUp</div>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#wellness">Wellness</a>
-    <a href="#makeup">Makeup</a>
-    <a href="#fit">Fit</a>
-    <a href="#ai">AI</a>
-  </nav>
-
-  <div class="moon" onclick="toggleDarkMode()">🌙</div>
-</header>
-
-<!-- HERO -->
-<section id="home" class="hero">
-  <h1>LevelUp 🎀</h1>
-  <p>Your coquette glow-up space</p>
-
-  <button onclick="scrollToSection('wellness')">Start ✨</button>
-</section>
-
-<!-- WELLNESS -->
-<section id="wellness" class="box">
-  <h2>🌿 Wellness</h2>
-
-  <button onclick="showWellness()">Generate Healthy Plan</button>
-  <div id="wellnessOut"></div>
-</section>
-
-<!-- MAKEUP -->
-<section id="makeup" class="box">
-  <h2>💄 Makeup Tips</h2>
-
-  <button onclick="showMakeup()">Get Tips</button>
-  <div id="makeupOut"></div>
-</section>
-
-<!-- FIT + SHEIN -->
-<section id="fit" class="box">
-  <h2>👗 Fit Ideas</h2>
-
-  <button onclick="showFit()">Match Outfit</button>
-
-  <div id="fitOut"></div>
-
-  <h3>🛍️ Shein Ideas</h3>
-  <button onclick="openLink('coquette')">Coquette</button>
-  <button onclick="openLink('casual')">Casual</button>
-</section>
-
-<!-- SPOTIFY -->
-<section class="box">
-  <h2>🎧 Playlists</h2>
-
-  <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6" width="100%" height="152"></iframe>
-</section>
-
-<!-- AI POPUP -->
-<section id="ai" class="box">
-  <h2>🤖 AI Helper</h2>
-  <button onclick="openChat()">Open AI Chat</button>
-</section>
-
-<div id="chatModal" class="modal">
-  <div class="modal-content">
-
-    <span class="close" onclick="closeChat()">×</span>
-
-    <h3>LevelUp AI 🎀</h3>
-
-    <div id="chatBox"></div>
-
-    <input id="chatInput" placeholder="Ask something..." />
-    <button onclick="sendChat()">Send</button>
-
-  </div>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
